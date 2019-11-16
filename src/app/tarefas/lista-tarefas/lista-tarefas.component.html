@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr *ngFor="let tarefa of tarefas | async">
+      <th scope="row">{{tarefa.nome}}</th>
+      <td>
+        <ul class="list-group list-group-horizontal">
+
+          <li class="list-group-item botao-acao">
+            <button class="btn" (click)="onClickEditar(tarefa)">Editar</button>
+          </li>
+          
+          <li class="list-group-item botao-acao">
+            <button class="btn" (click)="onClickVisualizar(tarefa)">Visualizar</button>
+          </li>
+
+          <li class="list-group-item botao-acao">
+            <button class="btn" (click)="onClickExcluir(tarefa)">Excluir</button>
+          </li>
+
+        </ul>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
