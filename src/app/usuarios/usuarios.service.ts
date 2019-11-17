@@ -44,9 +44,13 @@ export class UsuarioService {
 
   getUsuariosDoStorage() {
     const usuarios = localStorage.getItem(this.sessionUsuarioKey);
+    
     if (usuarios) {
-      this.usuarios.next(JSON.parse(usuarios));
+      const objetosUsuario = JSON.parse(usuarios);
+      this.usuarios.next(objetosUsuario);
+      return objetosUsuario;
     }
-    return JSON.parse(usuarios);
+    
+    return false;
   }
 }

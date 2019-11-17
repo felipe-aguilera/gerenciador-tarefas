@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from './auth.service';
 import { Router } from  '@angular/router';
 import { LoginService } from './login.service';
 
@@ -29,7 +28,7 @@ export class LoginComponent {
 
     const logado = this.loginService.logar(this.loginForm.value);
     if (logado) {
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/tarefas');
     } else {
       console.error('errrou');
       // aleerta que deu ruim

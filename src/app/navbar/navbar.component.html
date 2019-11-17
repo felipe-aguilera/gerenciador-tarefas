@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <a class="navbar-brand" href="#">Navbar</a>
+    
+    <ng-container *ngIf="logado | async as user">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+          
+            <li class="nav-item"  routerLinkActive="active">
+                <a class="nav-link" routerLink="/tarefas">Tarefas</a>
+            </li>
+            
+            <li class="nav-item"  routerLinkActive="active" *ngIf="user.permissao">
+                <a class="nav-link" routerLink="/usuarios">Usuários</a>
+            </li>
+            
+            <div class="dropdown-divider"></div>
+            
+            <li class="nav-item">
+                <a class="nav-link logout" (click)="logout()">Logout</a>
+            </li>
+
+          </ul>
+      </div>
+    </ng-container>
+  </nav>
