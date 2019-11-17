@@ -1,0 +1,8 @@
+.botao-acao {
+    padding: 0 2px;
+}
+
+.tarefa-concluida {
+    text-decoration: line-through;
+    background: #c4dfc4;
+}

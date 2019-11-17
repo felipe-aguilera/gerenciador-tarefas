@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Usuario</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr *ngFor="let usuario of usuarios | async" [ngClass]="{ 'usuario-admin': usuario.permissao, 'text-success': usuario.permissao }">
+      
+      <th scope="row">{{usuario.nome}}</th>
+      <td>
+        <ul class="list-group list-group-horizontal">
+
+          <li class="list-group-item botao-acao">
+            <button class="btn" (click)="onClickEditar(usuario)">Editar</button>
+          </li>
+          
+          <li class="list-group-item botao-acao">
+            <button class="btn" (click)="onClickVisualizar(usuario)">Visualizar</button>
+          </li>
+
+          <li class="list-group-item botao-acao">
+            <button class="btn" (click)="onClickExcluir(usuario)">Excluir</button>
+          </li>
+
+        </ul>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
