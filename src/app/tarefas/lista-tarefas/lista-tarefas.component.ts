@@ -15,6 +15,7 @@ export class ListaTarefasComponent {
   @Output() onEditar: EventEmitter<Tarefa> = new EventEmitter();
   @Output() onVisualizar: EventEmitter<Tarefa> = new EventEmitter();
   @Output() onExcluir: EventEmitter<Tarefa> = new EventEmitter();
+  @Output() onCheck: EventEmitter<Tarefa> = new EventEmitter();
 
   onClickEditar(tarefa: Tarefa) {
     this.onEditar.emit(tarefa);
@@ -26,5 +27,9 @@ export class ListaTarefasComponent {
 
   onClickExcluir(tarefa: Tarefa) {
     this.onExcluir.emit(tarefa);
+  }
+
+  onChangeCheckbox(tarefa) {
+    this.onCheck.emit(tarefa);
   }
 }

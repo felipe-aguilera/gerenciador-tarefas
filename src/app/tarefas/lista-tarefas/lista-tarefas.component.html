@@ -1,19 +1,27 @@
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">Concluida</th>
       <th scope="col">Nome</th>
       <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
     
-    <tr *ngFor="let tarefa of tarefas | async">
+    <tr *ngFor="let tarefa of tarefas | async" [ngClass]="{ 'tarefa-concluida': tarefa.concluido, 'text-success': tarefa.concluido }">
+      
+      <td>
+        <div class="form-check form-check-inline m-0 mx-auto">
+          <input class="form-check-input" type="checkbox" aria-label="concluida" [checked]="tarefa.concluido" (change)="onChangeCheckbox(tarefa)" />
+        </div>
+      </td>
+
       <th scope="row">{{tarefa.nome}}</th>
       <td>
         <ul class="list-group list-group-horizontal">
 
           <li class="list-group-item botao-acao">
-            <button class="btn" (click)="onClickEditar(tarefa)">Editar</button>
+            <button class="btn" (click)="onClickEditar(tarefa)" data-toggle="tarefa" data-target="#exampleModal">Editar</button>
           </li>
           
           <li class="list-group-item botao-acao">

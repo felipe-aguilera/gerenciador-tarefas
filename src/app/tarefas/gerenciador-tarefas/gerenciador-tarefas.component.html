@@ -1,9 +1,33 @@
-<h1>gerenciador de tarefas</h1>
+<main class="container">
+    <h1>Gerenciador de Tarefas</h1>
+    
+    <form #form class="mb-4" [formGroup]="tarefaForm" (ngSubmit)="onSubmit()" novalidate>
 
-<app-lista-tarefas
-  [tarefas]="tarefas"
-  (onEditar)="onEditar($event)"
-  (onVisualizar)="onVisualizar($event)"
-  (onExcluir)="onExcluir($event)"
- >
-</app-lista-tarefas>
+      <div class="form-group">
+        <!-- <label for="nome">Nome*</label> -->
+        <input type="text" class="form-control" id="nome" placeholder="Nome"  formControlName="nome">
+      </div>
+
+      <div class="form-group">
+        <!-- <label for="descricao">Descrição</label> -->
+        <input type="text" class="form-control" id="descricao" placeholder="Descrição"  formControlName="descricao">
+      </div>
+
+      <button type="submit" class="btn btn-primary ml-auto d-block">Cadastrar</button>
+    </form>
+
+    <app-lista-tarefas
+    *ngIf="tarefas| async; else noContent"
+      [tarefas]="tarefas"
+      (onEditar)="onEditar($event)"
+      (onVisualizar)="onVisualizar($event)"
+      (onExcluir)="onExcluir($event)"
+      (onCheck)="onCheck($event)"
+     >
+    </app-lista-tarefas>
+
+    <ng-template #noContent>
+      <h2>Nenhuma tarefa :)</h2>
+    </ng-template>
+</main>
+
