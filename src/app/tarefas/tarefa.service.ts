@@ -29,7 +29,7 @@ export class TarefaService {
     const filteredTarefas = tarefas.filter(it => it.id !== tarefa.id);
 
     this.tarefas.next(filteredTarefas);
-    sessionStorage.setItem(this.sessionTarefaKey, JSON.stringify(tarefas));
+    localStorage.setItem(this.sessionTarefaKey, JSON.stringify(tarefas));
   }
 
   update(tarefa) {
@@ -39,7 +39,7 @@ export class TarefaService {
     tarefas[index] = tarefa;
     
     this.tarefas.next(tarefas);
-    sessionStorage.setItem(this.sessionTarefaKey, JSON.stringify(tarefas));
+    localStorage.setItem(this.sessionTarefaKey, JSON.stringify(tarefas));
   }
 
   private getTarefasDaSessionStorage() {

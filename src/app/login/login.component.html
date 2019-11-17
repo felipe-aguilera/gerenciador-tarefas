@@ -1,0 +1,17 @@
+<main class="container">
+    <h1>Login</h1>
+    
+    <form #form class="mb-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="nome" placeholder="Nome"  formControlName="nome">
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="form-control" id="senha" placeholder="Senha"  formControlName="senha">
+      </div>
+
+      <button type="submit" class="btn btn-primary ml-auto d-block">Acessar</button>
+    </form>
+
+</main>

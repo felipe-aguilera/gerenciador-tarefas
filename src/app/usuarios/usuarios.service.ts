@@ -42,10 +42,11 @@ export class UsuarioService {
     localStorage.setItem(this.sessionUsuarioKey, JSON.stringify(usuarios));
   }
 
-  private getUsuariosDoStorage() {
+  getUsuariosDoStorage() {
     const usuarios = localStorage.getItem(this.sessionUsuarioKey);
     if (usuarios) {
       this.usuarios.next(JSON.parse(usuarios));
     }
+    return JSON.parse(usuarios);
   }
 }

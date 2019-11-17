@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { TarefasModule } from './tarefas/tarefas.module';
 import { UsuarioService } from './usuarios/usuarios.service';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { LoginComponent } from './login/login.component';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     ReactiveFormsModule,
     AppRoutingModule,
     TarefasModule,
-    UsuariosModule
+    UsuariosModule,
+    LoginModule
   ],
-  providers: [UsuarioService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
