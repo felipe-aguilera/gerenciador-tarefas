@@ -21,15 +21,15 @@
           <ul class="list-group list-group-horizontal">
 
             <li class="list-group-item botao-acao">
-              <button class="btn" (click)="onClickEditar(tarefa, i)">Editar</button>
+              <button class="btn" (click)="onClickEditar(i)">Editar</button>
             </li>
             
             <li class="list-group-item botao-acao">
-              <button class="btn" (click)="onClickVisualizar(tarefa, i)">Visualizar</button>
+              <button class="btn" (click)="onClickVisualizar(i)">Visualizar</button>
             </li>
 
             <li class="list-group-item botao-acao">
-              <button class="btn" (click)="onClickExcluir(tarefa)">Excluir</button>
+              <button class="btn" (click)="onClickExcluir(i)" >Excluir</button>
             </li>
 
           </ul>
@@ -63,6 +63,16 @@
             </div>
         </td>
       </tr>
+
+      <tr>
+        <td colspan="3" class="p-0">
+          <div *ngIf="(!excluir && i === idExcluir)" >
+            <h3>Deseja excluir?</h3>
+            <button type="button" data-dismiss="modal" class="btn btn-danger" id="delete" (click)="excluirTarefa(tarefa)">Delete</button>
+          </div>
+        </td>
+      </tr>
+
 
     </ng-container>
   </tbody>

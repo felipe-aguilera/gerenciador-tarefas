@@ -24,8 +24,10 @@ export class ListaTarefasComponent {
 
   editar = false;
   visualizar = false;
+  excluir = false
   idEditar;
   idVisualizar;
+  idExcluir;
 
   tarefaForm = this.fb.group(
     {
@@ -34,17 +36,23 @@ export class ListaTarefasComponent {
     }
   );
 
-  onClickEditar(tarefa: Tarefa , index) {
+  onClickEditar(index) {
     this.editar = !this.editar;
     this.idEditar = index;
   }
 
-  onClickVisualizar(tarefa: Tarefa, index) {
+  onClickVisualizar(index) {
     this.visualizar = !this.visualizar;
     this.idVisualizar = index;
   }
 
-  onClickExcluir(tarefa: Tarefa) {
+  onClickExcluir(index) {
+    // this.onExcluir.emit(tarefa);
+    this.excluir = !this.excluir;
+    this.idExcluir = index;
+  }
+
+  excluirTarefa(tarefa:Tarefa) {
     this.onExcluir.emit(tarefa);
   }
 

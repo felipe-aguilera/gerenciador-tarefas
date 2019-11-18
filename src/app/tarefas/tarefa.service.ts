@@ -35,7 +35,6 @@ export class TarefaService {
   update(tarefa, index_tarefa) {
     console.log(index_tarefa);
     const tarefas = this.tarefas.getValue();
-    // const index = tarefas.findIndex(it => it.id === tarefa.id);
 
     tarefas[index_tarefa] = tarefa;
     
