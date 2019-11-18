@@ -30,13 +30,6 @@ export class GerenciadorUsuariosComponent implements OnInit {
     this.usuarios = this.usuariosService.usuarioObservable;
   }
 
-  onEditar(usuario: Usuario) {
-    console.log("onEditar", usuario);
-  }
-
-  onVisualizar(usuario: Usuario) {
-    console.log("Visualizar", usuario);
-  }
 
   onExcluir(usuario: Usuario) {
     console.log("onExcluir", usuario);
@@ -47,7 +40,6 @@ export class GerenciadorUsuariosComponent implements OnInit {
     if (!this.usuariosForm.valid) return;
 
     const usuario = {...this.usuariosForm.value} as Usuario;
-    console.log(usuario);
     this.usuariosService.add(usuario);
     this.usuariosForm.reset();
   }

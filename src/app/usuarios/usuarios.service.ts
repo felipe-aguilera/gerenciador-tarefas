@@ -32,16 +32,6 @@ export class UsuarioService {
     localStorage.setItem(this.sessionUsuarioKey, JSON.stringify(filteredUsuarios));
   }
 
-  update(usuario) {
-    const usuarios = this.usuarios.getValue();
-    const index = usuarios.findIndex(it => it.id === usuario.id);
-
-    usuarios[index] = usuario;
-    
-    this.usuarios.next(usuarios);
-    localStorage.setItem(this.sessionUsuarioKey, JSON.stringify(usuarios));
-  }
-
   getUsuariosDoStorage() {
     const usuarios = localStorage.getItem(this.sessionUsuarioKey);
     

@@ -27,8 +27,10 @@ export class GerenciadorTarefasComponent implements OnInit {
     this.tarefas = this.tarefaService.tarefaObservable;
   }
 
-  onEditar(tarefa: Tarefa) {
-    console.log("onEditar", tarefa);
+  onEditar(object: any) {
+    console.log(object);
+    // console.log("onEditar", tarefa);
+    this.tarefaService.update(object[0], object[1]);
   }
 
   onVisualizar(tarefa: Tarefa) {

@@ -15,7 +15,7 @@ export class TarefaService {
 
   add(tarefa: Tarefa) {
     const tarefas = this.tarefas.getValue();
-    tarefa.id = this.tarefaId++;
+    tarefa.id = (this.tarefaId ++);
     tarefas.push(tarefa);
 
     this.tarefas.next(tarefas);
@@ -32,11 +32,12 @@ export class TarefaService {
     localStorage.setItem(this.sessionTarefaKey, JSON.stringify(tarefas));
   }
 
-  update(tarefa) {
+  update(tarefa, index_tarefa) {
+    console.log(index_tarefa);
     const tarefas = this.tarefas.getValue();
-    const index = tarefas.findIndex(it => it.id === tarefa.id);
+    // const index = tarefas.findIndex(it => it.id === tarefa.id);
 
-    tarefas[index] = tarefa;
+    tarefas[index_tarefa] = tarefa;
     
     this.tarefas.next(tarefas);
     localStorage.setItem(this.sessionTarefaKey, JSON.stringify(tarefas));

@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let tarefa of tarefas | async">
+    <ng-container *ngFor="let tarefa of tarefas| async; let i = index;">
       <tr [ngClass]="{ 'tarefa-concluida': tarefa.concluido, 'text-success': tarefa.concluido }">
         
         <td>
@@ -21,11 +21,11 @@
           <ul class="list-group list-group-horizontal">
 
             <li class="list-group-item botao-acao">
-              <button class="btn" (click)="onClickEditar(tarefa)" data-toggle="tarefa" data-target="#exampleModal">Editar</button>
+              <button class="btn" (click)="onClickEditar(tarefa, i)">Editar</button>
             </li>
             
             <li class="list-group-item botao-acao">
-              <button class="btn" (click)="onClickVisualizar(tarefa)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Visualizar</button>
+              <button class="btn" (click)="onClickVisualizar(tarefa, i)">Visualizar</button>
             </li>
 
             <li class="list-group-item botao-acao">
@@ -35,15 +35,35 @@
           </ul>
         </td>
       </tr>
+
       <tr>
         <td colspan="3" class="p-0">
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          <div *ngIf="(!editar && i === idEditar)">
+            <form #form class="mb-4" [formGroup]="tarefaForm" (ngSubmit)="onSubmitEditar(i)" novalidate>
+
+                <div class="form-group">
+                  Nome:<input type="text" class="form-control" id="nome" placeholder="Nome"  formControlName="nome" [value]="tarefa.nome">
+                </div>
+          
+                <div class="form-group">
+                  Descrição:<input type="text" class="form-control" id="descricao" placeholder="Descrição"  formControlName="descricao" [value]="tarefa.descricao">
+                </div>
+          
+                <button type="submit" class="btn btn-primary ml-auto d-block">Salvar</button>
+              </form>
             </div>
-          </div>
         </td>
-     </tr>
+      </tr>
+
+      <tr>
+        <td colspan="3" class="p-0">
+          <div *ngIf="(!visualizar && i === idVisualizar)" >
+                  Nome:<input disabled type="text" class="form-control" id="nome" placeholder="Nome" [value]="tarefa.nome">
+                  Descrição:<input disabled type="text" class="form-control" id="descricao" placeholder="Descrição" [value]="tarefa.descricao">
+            </div>
+        </td>
+      </tr>
+
     </ng-container>
   </tbody>
 </table>
