@@ -33,7 +33,6 @@ export class TarefaService {
   }
 
   update(tarefa, index_tarefa) {
-    console.log(index_tarefa);
     const tarefas = this.tarefas.getValue();
 
     tarefas[index_tarefa] = tarefa;

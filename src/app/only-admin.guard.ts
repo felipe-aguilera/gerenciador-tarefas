@@ -14,7 +14,6 @@ export class OnlyAdminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      console.log(state, next);
       return this.loginService.logadoObservable
       .pipe(
         tap(usuario => !usuario.permissao && this.router.navigateByUrl('/tarefas')),

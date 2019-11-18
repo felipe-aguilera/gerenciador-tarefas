@@ -31,7 +31,6 @@ export class GerenciadorUsuariosComponent implements OnInit {
   }
 
   onExcluir(usuario: Usuario) {
-    console.log("onExcluir", usuario);
     this.usuariosService.remove(usuario);
   }
 

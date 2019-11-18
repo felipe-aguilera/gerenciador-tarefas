@@ -28,17 +28,10 @@ export class GerenciadorTarefasComponent implements OnInit {
   }
 
   onEditar(object: any) {
-    console.log(object);
-    // console.log("onEditar", tarefa);
     this.tarefaService.update(object[0], object[1]);
   }
 
-  onVisualizar(tarefa: Tarefa) {
-    console.log("Visualizar", tarefa);
-  }
-
   onExcluir(tarefa: Tarefa) {
-    console.log("onExcluir", tarefa);
     this.tarefaService.remove(tarefa);
   }
 

@@ -61,7 +61,6 @@ export class ListaTarefasComponent {
   }
 
   onSubmitEditar(i){
-    console.log(i);
     if (!this.tarefaForm.valid) return;
     let objeto =[this.tarefaForm.value, i];
     this.onEditar.emit(objeto);
